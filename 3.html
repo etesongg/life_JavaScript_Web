@@ -6,34 +6,39 @@
 <link rel="stylesheet" href="style.css">
 
 <script>
-    function LinksSetcolor(color) {
-        var alist = document.querySelectorAll('a');
+    var Links ={
+        setColor:function(color){
+            var alist = document.querySelectorAll('a');
         var i = 0;
         while(i < alist.length) {
             alist[i].style.color = color;
             i = i + 1;
         }
+        }
     }
-    function BodySetcolor(color) {
-        document.querySelector('body').style.color = color;
-    }
-    function BodySetBackgroundColor(color){
-        document.querySelector('body').style.backgroundColor = color;
+
+    var Body = {
+        setColor:function (color){
+            document.querySelector('body').style.color = color;
+        },
+        setBackgroundColor:function  (color){
+            document.querySelector('body').style.backgroundColor = color;
+        }
     }
 
     function nightdayHandler(self){
     var target = document.querySelector('body');
     if(self.value === 'night'){
-        BodySetBackgroundColor('black');
-        BodySetcolor('white');
+        Body.setBackgroundColor('black');
+        Body.setColor('white');
         self.value = 'day';
-        LinksSetcolor('powderblue');
+        Links.setColor('powderblue');
       
     } else {
-        BodySetBackgroundColor('white');
-        BodySetcolor('black');
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
         self.value = 'night';
-        LinksSetcolor('blue');
+        Links.setColor('blue');
     }
 }
 </script>
